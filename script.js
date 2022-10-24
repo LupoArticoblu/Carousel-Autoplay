@@ -27,43 +27,13 @@ listImages[counterImages].classList.add('active');
 listthumbs[counterImages].classList.add('active');
 
 
-/*const output = document.querySelector('.output');
-
-let countDown = 5;
-
-setTimeout(function() {
-  clearInterval(clock);
-}, (countDown + 1) * 1000);
-
-
-const clock = setInterval(function() {
-  countDown--;
-  // if (countDown < 0) countDown = 0;
-  printOutput(countDown);
-  // if(countDown === 0) {
-  //   clearInterval(clock);
-  // }
-}, 1000);
-
-
-
-
-
-
-printOutput(countDown);*/
-
-//non funzionante
-let countDown = 3;
-
 const change = setInterval(function() {
-  if(countDown === counterImages){
-    counterImages++;
-  }
-},3000);
+  nextSlide();
+}, 3000);
 
 
 
-prev.addEventListener('click',function(){
+prev.addEventListener('click', function(){
   listImages[counterImages].classList.remove('active');
   listthumbs[counterImages].classList.remove('active');
   counterImages++;
@@ -71,11 +41,15 @@ prev.addEventListener('click',function(){
   listImages[counterImages].classList.add('active');
   listthumbs[counterImages].classList.add('active');
 })
-next.addEventListener('click',function(){
+
+next.addEventListener('click', nextSlide);
+
+
+function nextSlide() {
   listImages[counterImages].classList.remove('active');
   listthumbs[counterImages].classList.remove('active');
   counterImages--;
   if(counterImages < 0) counterImages = numImages - 1;
   listImages[counterImages].classList.add('active');
   listthumbs[counterImages].classList.add('active');
-})
+}
