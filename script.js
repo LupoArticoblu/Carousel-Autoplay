@@ -52,8 +52,15 @@ const clock = setInterval(function() {
 
 printOutput(countDown);*/
 
-//problemi nel log
-let countDown = setInterval(next, 5000);
+//non funzionante
+let countDown = 3;
+
+const change = setInterval(function() {
+  if(countDown === counterImages){
+    counterImages++;
+  }
+},3000);
+
 
 
 prev.addEventListener('click',function(){
